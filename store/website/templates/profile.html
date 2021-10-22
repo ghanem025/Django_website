@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>Profile</h1>
+<p>this is my profile</p>
+
+<p>
+    {{ my_page }}, {{ email }}
+    {{ mylist }}
+</p>
+<ul>
+{% for my_items in mylist %}
+    {% if my_items|divisibleby:2 %}
+        <li>{{my_items}}</li>
+    {% else %}
+        <li>{{my_items|add:1}}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+{% endblock content %}
