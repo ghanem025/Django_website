@@ -1,6 +1,7 @@
 {%  extends 'main.html' %}
 {% load static %}
 {% block content %}
+
     <style>
     .button {
     background-color: #4CAF50;
@@ -21,8 +22,9 @@
 
     <div class="bg"></div>
     <div class="bg bg2"></div>
-    <link rel="stylesheet" type="text/css" href="{%  static 'css/main.css' %}">
-    <h1>list of projects</h1>
+{#    <link href= "{% static 'css/theme.css' %}" rel="stylesheet">#}
+    <link href="{% static 'css/main.css' %}" rel ="stylesheet">
+    <h1>list of products</h1>
 
 <table class="styled-table" >
     {% for instance in object_list %}

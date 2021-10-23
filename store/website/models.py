@@ -5,6 +5,14 @@ from django.urls import reverse
 # Create your models here.
 # models are for the back-end, they let you change the fields of the objects you are
 #storing in the django admin database
+
+class Customer(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    phone_num = models.CharField(max_length=12)
+    email = models.EmailField(blank=True,null=True)
+    date_added = models.DateField().auto_now
+
 class Product(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
