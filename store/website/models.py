@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
@@ -7,11 +8,14 @@ from django.urls import reverse
 #storing in the django admin database
 
 class Customer(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone_num = models.CharField(max_length=12)
     email = models.EmailField(blank=True,null=True)
     date_added = models.DateField().auto_now
+    def __str__(self):
+        return f"{self.user.username}-{self.active}"
 
 class Product(models.Model):
     title = models.CharField(max_length=100)

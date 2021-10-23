@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'materializecssform',
     'playground',
     'website',
     'blog'
+
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404,Http404,redirect
 from .models import Product
-from .forms import ProductForm, RawForm
+from .forms import ProductForm, RawForm,CustomerForm
+from django.views.generic import FormView
 
 
 def list_view(request):
@@ -66,6 +67,22 @@ def render_initial_data(request):
 #         'form': form
 #     }
 #     return render(request, "product/product_create.html", context)
+
+class CustomerFormView(FormView):
+    form_class = CustomerForm
+    template_name = "customer/AddCustomer.html"
+
+
+# def CustomerCreate(request):
+#     form = CustomerForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#         form = CustomerForm(request.POST or None)
+#
+#     context = {
+#         'form':form
+#     }
+#     return render(request,"customer/AddCustomer.html",context)
 
 
 def product_create(request):

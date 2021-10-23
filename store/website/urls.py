@@ -7,6 +7,7 @@ from .views import (
     delete,
     list_view,
     product_create,
+    CustomerFormView
 )
 app_name = 'website'
 urlpatterns = [
@@ -14,5 +15,6 @@ urlpatterns = [
     path('product/<int:my_id>/delete', views.delete),
     path('product/list/',list_view,name='list'),
     #path('product/',views.product_details,name ='product-details'),# not calling function, just passing referance
-    path('product/create/',product_create)
+    path('product/create/',product_create),
+    path('customer/add/',CustomerFormView.as_view(),name = "Customer")
 ]

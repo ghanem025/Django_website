@@ -1,7 +1,13 @@
 from django import forms
 from .models import Product
+from .models import Customer
 from django.forms import MultiWidget
 
+
+class CustomerForm(forms.ModelForm):
+    class Meta:
+        model = Customer
+        fields = '__all__'
 
 class ProductForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "your title"}))
