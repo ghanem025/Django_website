@@ -19,6 +19,14 @@ class ProductForm(forms.ModelForm):
              "rows": 20,
             "cols": 120
          }))
+    summary = forms.CharField(required=False, widget=forms.Textarea(
+        attrs={
+             "class": "new class name two",
+             "id": "my id for textarea",
+             "placeholder": "Enter Summary here",
+             "rows": 20,
+            "cols": 120
+         }))
     price = forms.DecimalField(decimal_places=2, max_digits=10000)
 
     class Meta:
@@ -28,6 +36,7 @@ class ProductForm(forms.ModelForm):
             'price',
             'summary',
             'description',
+            'stock',
         ]
 
     # def clean_title(self, *args, **kwargs):

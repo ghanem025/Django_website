@@ -1,23 +1,10 @@
 {%  extends 'base.html' %}
 {% load materializecss %}
-
-{% block css %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
-{% endblock css %}
-
+{% load static %}
+<link href="{% static 'css/form.css' %} " rel="stylesheet">
 {% block content %}
-    <h1>Add Customer</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form|materializecss }}
-
-</form>
-{% endblock content %}
-
-{% block scripts %}
 <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
@@ -32,4 +19,14 @@ $(document).ready(function(){
 
 });
 </script>
-{% endblock scripts %}
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+    <h1>Add Customer</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form|materializecss }}
+    <input  type='submit' value='Save'/>
+</form>
+{% endblock content %}
+

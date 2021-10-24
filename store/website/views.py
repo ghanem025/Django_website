@@ -68,28 +68,25 @@ def render_initial_data(request):
 #     }
 #     return render(request, "product/product_create.html", context)
 
-class CustomerFormView(FormView):
-    form_class = CustomerForm
-    template_name = "customer/AddCustomer.html"
 
 
-# def CustomerCreate(request):
-#     form = CustomerForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         form = CustomerForm(request.POST or None)
-#
-#     context = {
-#         'form':form
-#     }
-#     return render(request,"customer/AddCustomer.html",context)
+
+def CustomerCreate(request):
+    form = CustomerForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = CustomerForm()
+    context = {
+        'form':form
+    }
+    return render(request,"customer/AddCustomer.html",context)
 
 
 def product_create(request):
     form = ProductForm(request.POST or None)# renders the form
     if form.is_valid():#if the form is valid than save it to the database
        form.save()
-       form = ProductForm(request.POST or None) #rerender the form
+       form = ProductForm() #rerender the form
     context = {
        'form': form
     }
