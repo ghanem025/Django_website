@@ -23,6 +23,7 @@ urlpatterns = [
     path('playground/',include('playground.urls')),#django will know that all 'playground' requests will be handeled
     #by playground.urls
     path('website/',include('website.urls')),
+    path('accounts/',include('django.contrib.auth.urls'))
     #path('blog/',include('blog.urls'))
 
 

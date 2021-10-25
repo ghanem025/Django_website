@@ -8,7 +8,8 @@ from .views import (
     list_view,
     product_create,
     # CustomerFormView,
-    CustomerCreate
+    CustomerCreate,
+    home
 )
 app_name = 'website'
 urlpatterns = [
@@ -17,5 +18,7 @@ urlpatterns = [
     path('product/list/',list_view,name='list'),
     #path('product/',views.product_details,name ='product-details'),# not calling function, just passing referance
     path('product/create/',product_create),
-    path('customer/add/',CustomerCreate,name = "Customer")
+    path('customer/add/',CustomerCreate,name = "Customer"),
+    path('',home)
+
 ]

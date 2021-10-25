@@ -4,6 +4,12 @@ from .forms import ProductForm, RawForm,CustomerForm
 from django.views.generic import FormView
 
 
+def home(request):
+    template = "home.html"
+    context = {}
+    return render(request,"home.html",context)
+
+
 def list_view(request):
     queryset = Product.objects.all()
     context = {
