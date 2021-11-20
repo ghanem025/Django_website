@@ -3,12 +3,13 @@ from django.db import models
 from django.urls import reverse
 import datetime
 
-
+import uuid
 # Create your models here.
 # models are for the back-end, they let you change the fields of the objects you are
 #storing in the django admin database
 
 class Customer(models.Model):
+    # eyw_transactionref=models.CharField(max_length=100, blank=True, unique=True, default=uuid.uuid4)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null= True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -26,8 +27,6 @@ class Product(models.Model):
     email = models.EmailField(blank=True, null=True)
     def get_dynamic_urls(self):#instances method
         return reverse("website:product-detail",kwargs={"my_id":self.id})
-
-
 
 class Store(models.Model):
     name = models.CharField(max_length=100)

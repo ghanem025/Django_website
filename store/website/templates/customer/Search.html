@@ -1,9 +1,8 @@
-{%  extends 'base.html' %}
-
 {% load materializecss %}
 {% load static %}
 <link href="{% static 'css/form.css' %} " rel="stylesheet">
 {% block content %}
+
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -20,13 +19,23 @@ $(document).ready(function(){
 
 });
 </script>
-
+    <link href= "{% static 'css/theme.css' %}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
-<h1>Add Order</h1>
-<form action = ""method='POST'> {% csrf_token %}
-{{ form|materializecss }}
-<input type='submit' value='Save' />
+<h1>Search Customer</h1>
+
+<form action="" method="get">
+    {% csrf_token %}
+
+    <input id="first_name" name="q" type="text" placeholder="Search...">
+    <input  type='submit' value='Search'/>
 </form>
 
+
+
 {% endblock content %}
+
+
+
+
+

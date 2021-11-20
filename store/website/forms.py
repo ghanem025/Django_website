@@ -4,6 +4,9 @@ from .models import Customer
 from django.forms import MultiWidget
 
 
+class SearchForm(forms.Form):
+    first_name = forms.CharField(widget= forms.TextInput(attrs={"placeholder": "Enter name here"}))
+
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
@@ -38,21 +41,6 @@ class ProductForm(forms.ModelForm):
             'description',
             'stock',
         ]
-
-    # def clean_title(self, *args, **kwargs):
-    #     title = self.cleaned_data.get("title")  # get the title from the class
-    #      if not "CFE" in title:
-    #         raise forms.ValidationError("This is not a valid title")
-    #      else:
-    #          return title
-
-    # def clean_email(self, *args, **kwargs):
-    #     email = self.cleaned_data.get("email")  # get the title from the class
-    #     if not email.endswith("edu"):
-    #         raise forms.ValidationError("This is not a valid email")
-    #     else:
-    #         return email
-
 
 class RawForm(forms.Form):
     title = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "your title"}))

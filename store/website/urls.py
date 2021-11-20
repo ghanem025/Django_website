@@ -9,7 +9,8 @@ from .views import (
     product_create,
     # CustomerFormView,
     CustomerCreate,
-    home
+    home,
+    Search
 )
 app_name = 'website'
 urlpatterns = [
@@ -19,6 +20,7 @@ urlpatterns = [
     #path('product/',views.product_details,name ='product-details'),# not calling function, just passing referance
     path('product/create/',product_create),
     path('customer/add/',CustomerCreate,name = "Customer"),
-    path('',home)
+    path('',home),
+    path('customer/search',Search)
 
 ]

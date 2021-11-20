@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404,Http404,redirect
-from .models import Product
-from .forms import ProductForm, RawForm,CustomerForm
-from django.views.generic import FormView
+from .models import Product,Customer
+from .forms import ProductForm, RawForm,CustomerForm,SearchForm
+from django.views.generic import FormView, TemplateView, ListView
+from django.db.models import Q
+
 
 
 def home(request):
@@ -57,23 +59,6 @@ def render_initial_data(request):
     }
     return render(request, "product/product_create.html", context)
 
-# Create your views here.
-# def product_create(request):
-#   this is a raw django form, this lets us enter data and verify if it corresponds with the form
-#   if it's valid then we create a new object and added it to the database
-#   otherwise we print out an error
-#     form = RawForm(request.POST or None)#request.POST lets us actually get the data from the form
-#     if form.is_valid():
-#         print(form.cleaned_data)
-#         Product.objects.create(**form.cleaned_data)
-#     else:
-#         print(form.errors)#print out error
-#
-#     context = {
-#         'form': form
-#     }
-#     return render(request, "product/product_create.html", context)
-
 
 
 
@@ -105,3 +90,25 @@ def product_details(request):
         'object' : obj# this 'object' is taken from website.models
     }
     return render(request, "product/detail.html", context)
+
+
+def Search(request):
+    # if 'q' in request.GET:
+    #     q = request.GET['q']
+    #     customer_name = Customer.objects.filter(first_name__icontains=q)
+    # else:
+    #     customer_name = Customer.objects.all()
+    templatename = "customer/Search.html"
+        # form = SearchForm(request.POST)
+        # print(form.errors)
+    print("Form is valid")
+    query = request.GET.get('q',None)
+    if query:
+        print("HHHHHHHHHHHHHHHHEEEEEEEEEEEEELLLLLLLLLLLLLOOOOOOOOOOOOO")
+        object_list = Customer.objects.filter(first_name__icontains=query)
+        print(query, "has been found")
+        if (len(object_list)) > 0:
+            print(object_list)
+            return render(request, "customer/Found.html", {'object': object_list})
+
+    return render(request,templatename,{})
