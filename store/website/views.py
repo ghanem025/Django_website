@@ -102,13 +102,18 @@ def Search(request):
         # form = SearchForm(request.POST)
         # print(form.errors)
     print("Form is valid")
-    query = request.GET.get('q',None)
-    if query:
+    #query = request.GET.get('q',None)
+    if 'q' in request.GET:
+        q = request.GET['q']
         print("HHHHHHHHHHHHHHHHEEEEEEEEEEEEELLLLLLLLLLLLLOOOOOOOOOOOOO")
-        object_list = Customer.objects.filter(first_name__icontains=query)
-        print(query, "has been found")
+        object_list = Customer.objects.filter(first_name__startswith=q)
+        print(q, "has been found")
         if (len(object_list)) > 0:
-            print(object_list)
-            return render(request, "customer/Found.html", {'object': object_list})
+            print("here is the list ",object_list)
+            #return render(request, templatename, {})
+            context ={
+                'object' : object_list
+            }
+            return render(request, "customer/Found.html", context)
 
     return render(request,templatename,{})

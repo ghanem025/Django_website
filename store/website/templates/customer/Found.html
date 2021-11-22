@@ -1,37 +1,35 @@
+{% load materializecss %}
 {% load static %}
+<link href="{% static 'css/form.css' %} " rel="stylesheet">
 {% block content %}
 
-    <style>
-    .button {
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #555555;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    transition-duration: 0.4s;
-    font-size: 20px;
-    }
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 
-    .button:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
 
-    p {  color: #ffffff; font-family: 'Verdana', sans-serif; font-size: 20px; line-height: 26px; text-indent: 30px; margin: 0; }
-    </style>
+<script>
+$(document).ready(function(){
 
-    <div class="bg"></div>
-    <div class="bg bg2"></div>
-{#    <link href= "{% static 'css/theme.css' %}" rel="stylesheet">#}
-    <link href="{% static 'css/main.css' %}" rel ="stylesheet">
-<h1>Search Results</h1>
-    <p>{{object_list}}</p>
-{% for customer in object_list %}
-    <p>{{customer.first_name}}</p>
-{% endfor %}
-<table class="styled-table" >
-    {% for customer in object_list %}
+  // Initialize materialize data picker
+  $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+  $('select').formSelect();
+
+});
+</script>
+    <link href= "{% static 'css/theme.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+<h1>Search Customer</h1>
+
+<form action="" method="get">
+    {% csrf_token %}
+    <input id="first_name" name="q" type="text" placeholder="Search...">
+    <input  type='submit' value='Search'/>
+    <table class="styled-table" >
+    {% for customer in object %}
         <thead>
             <tr>
                 <th style="text-align:center">First name</th>
@@ -42,12 +40,20 @@
         <tbody>
             <tr>
                 <td><p style="text-align:center">{{customer.first_name}}</p></td>
-                <td><p>{{customer.last_name}}</p></td>
-                <td><p>{{customer.email}}</p></td>
+                <td><p style="text-align:center">{{customer.last_name}}</p></td>
+                <td><p style="text-align:center">{{customer.email}}</p></td>
             </tr>
         </tbody>
     {% endfor %}
+</form>
+
+
 </table>
+
+
+
+
+
 {% endblock content %}
 
 

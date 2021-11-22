@@ -26,10 +26,31 @@ $(document).ready(function(){
 
 <form action="" method="get">
     {% csrf_token %}
-
     <input id="first_name" name="q" type="text" placeholder="Search...">
     <input  type='submit' value='Search'/>
+    <table class="styled-table" >
+    {% for customer in object %}
+        <thead>
+            <tr>
+                <th style="text-align:center">First name</th>
+                <th style="text-align:center">Last name</th>
+                <th style="text-align:center">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><p style="text-align:center">{{customer.first_name}}</p></td>
+                <td><p>{{customer.last_name}}</p></td>
+                <td><p>{{customer.email}}</p></td>
+            </tr>
+        </tbody>
+    {% endfor %}
 </form>
+
+
+</table>
+
+
 
 
 
