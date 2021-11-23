@@ -1,7 +1,6 @@
 
 {% load static %}
 {% block content %}
-
     <style>
     .button {
     background-color: #4CAF50;
@@ -24,6 +23,9 @@
     <div class="bg bg2"></div>
 {#    <link href= "{% static 'css/theme.css' %}" rel="stylesheet">#}
     <link href="{% static 'css/main.css' %}" rel ="stylesheet">
+         <form action="http://127.0.0.1:8000/website">
+                <button class="button" type="submit"  >Home</button>
+            </form>
     <h1>list of products</h1>
 
 <table class="styled-table" >

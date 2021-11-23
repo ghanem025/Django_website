@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    {% include 'navbar.html' %}
     {% block content %}
+          <form action="http://127.0.0.1:8000/website">
+                <button class="button" type="submit"  >Home</button>
+            </form>
     <!-- add content here -->
     {%  endblock content %}
 
