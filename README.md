@@ -1,7 +1,7 @@
 # Django_website
 
-#Overview
-Website created using Django, python, HTML and CSS. Currently this website is still in progress and many more features are to come.
+## Overview
+Website created using Django, python, HTML and CSS. Currently this website is still in progress and many more features will be added.
 
 
 ## Login Screen
