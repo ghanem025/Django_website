@@ -23,7 +23,10 @@ $(document).ready(function(){
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
-<h1>Add Order</h1>
+    <form action="http://127.0.0.1:8000/website">
+        <button class="button" type="submit"  >Home</button>
+    </form>
+<h1>Add Product</h1>
 <form action = ""method='POST'> {% csrf_token %}
 {{ form|materializecss }}
 <input type='submit' value='Save' />
