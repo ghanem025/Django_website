@@ -1,8 +1,10 @@
+from django.http import HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404,Http404,redirect
 from .models import Product,Customer
 from .forms import ProductForm, RawForm,CustomerForm,SearchForm
 from django.views.generic import FormView, TemplateView, ListView
 from django.db.models import Q
+
 
 
 
@@ -60,7 +62,6 @@ def render_initial_data(request):
         'form': form
     }
     return render(request, "product/product_create.html", context)
-
 
 
 
