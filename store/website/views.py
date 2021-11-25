@@ -93,31 +93,31 @@ def product_details(request):
 
 
 def Search(request):
-    # if 'q' in request.GET:
-    #     q = request.GET['q']
-    #     customer_name = Customer.objects.filter(first_name__icontains=q)
-    # else:
-    #     customer_name = Customer.objects.all()
     templatename = "customer/Search.html"
-        # form = SearchForm(request.POST)
-        # print(form.errors)
-    print("Form is valid")
-    #query = request.GET.get('q',None)
-    if 'q' in request.GET:
+    if 'q' in request.GET: #
         q = request.GET['q']
-        object_list = Customer.objects.filter(first_name__startswith=q)
-
-        if (len(object_list)) > 0:
-            #return render(request, templatename, {})
-            context ={
-                'object' : object_list
-            }
-            return render(request, templatename, context)
+        object_list = Customer.objects.filter(first_name__startswith=q)# filter through the objects and see if a name matches 'q'
+        if (len(object_list))<=0:
+            return render(request, "customer/NotFound.html",{} )# render the site
     else:
-        object_list = Customer.objects.all()
-        context = {
-            'object': object_list
-        }
-        return render(request, templatename,context)
+        object_list = Customer.objects.all()#show all the customers in the database if you searched nothing
+
+    context = {
+        'object': object_list
+    }
+    return render(request, templatename,context)# render the site
 
 
+def Search_Product(request):
+    template = "product/Search.html"
+    if 'q' in request.GET: #
+        q = request.GET['q']
+        object_list = Product.objects.filter(title__startswith=q)# filter through the objects and see if a name matches 'q'
+        if(len(object_list)<=0):
+            return render(request,"product/NotFound.html",{})
+    else:
+        object_list = Product.objects.all()#show all the products in the database if you searched nothing
+    context = {
+        'products': object_list
+    }
+    return render(request, template,context)# render the site

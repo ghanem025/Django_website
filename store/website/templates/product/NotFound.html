@@ -32,26 +32,27 @@ $(document).ready(function(){
     <input id="first_name" name="q" type="text" placeholder="Search...">
     <input  type='submit' value='Search'/>
         <table class="styled-table" >
-    {% for customer in object %}
+    {% for product in products %}
         <thead>
             <tr>
-                <th style="text-align:center">First name</th>
-                <th style="text-align:center">Last name</th>
-                <th style="text-align:center">Email</th>
-                <th style="text-align:center">Date Added</th>
+                <th style="text-align:center">Name of Product</th>
+                <th style="text-align:center">Price</th>
+                <th style="text-align:center">Stock</th>
+                <th style="text-align:center">Total Price</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><p style="text-align:center">{{customer.first_name}}</p></td>
-                <td><p style="text-align:center">{{customer.last_name}}</p></td>
-                <td><p style="text-align:center">{{customer.email}}</p></td>
-                <td><p style="text-align:center">{{customer.date_added}}</p></td>
+                <td><p style="text-align:center">{{product.title}}</p></td>
+                <td><p style="text-align:center">{{product.price}}</p></td>
+                <td><p style="text-align:center">{{product.stock}}</p></td>
+                <td><p style="text-align:center">{{product.total_price}}</p></td>
             </tr>
         </tbody>
     {% endfor %}
         </table>
 </form>
+<h3>Sorry no Product has been found. Please try searching another product. :)</h3>
 
 
 {% endblock content %}

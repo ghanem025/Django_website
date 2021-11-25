@@ -10,7 +10,8 @@ from .views import (
     # CustomerFormView,
     CustomerCreate,
     home,
-    Search
+    Search,
+    Search_Product
 )
 app_name = 'website'
 urlpatterns = [
@@ -21,6 +22,7 @@ urlpatterns = [
     path('product/create/',product_create),
     path('customer/add/',CustomerCreate,name = "Customer"),
     path('',home, name='home'),
-    path('customer/search',Search)
+    path('customer/search',Search),
+    path('product/search',Search_Product)
 
 ]
