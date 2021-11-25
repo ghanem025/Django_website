@@ -16,6 +16,8 @@ class Customer(models.Model):
     phone_number = models.CharField(max_length=12)
     email = models.EmailField(blank=True,null=True)
     date_added = models.DateField(default = datetime.date.today)
+    def get_customer_detail(self):
+        return reverse("website:customer-detail",kwargs={"customer_id":self.id})
 
 class Product(models.Model):
     title = models.CharField(max_length=100)

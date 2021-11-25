@@ -32,7 +32,9 @@ def delete(request, my_id):
     }
     return render(request, "product/delete.html", context)
 
-
+def customer_view(request, customer_id):
+    obj = get_object_or_404(Customer,customer_id)
+    return render(request,"customer/detail.html",{'object':obj})
 def dynamic_view(request, my_id):
     obj = get_object_or_404(Product, id=my_id)
     context = {

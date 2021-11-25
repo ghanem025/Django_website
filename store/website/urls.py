@@ -21,6 +21,7 @@ urlpatterns = [
     #path('product/',views.product_details,name ='product-details'),# not calling function, just passing referance
     path('product/create/',product_create),
     path('customer/add/',CustomerCreate,name = "Customer"),
+    path('customer/detail/<int:customer_id>/',customer_view,name = 'customer-detail'),
     path('',home, name='home'),
     path('customer/search',Search),
     path('product/search',Search_Product)
