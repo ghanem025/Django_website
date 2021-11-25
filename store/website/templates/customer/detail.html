@@ -1,0 +1,31 @@
+
+{% load static %}
+{% block content %}
+    <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<link rel="stylesheet" type="text/css" href="{%  static 'css/main.css' %}">
+
+    <h1>{{ object.first_name }} {{object.last_name}}</h1>
+    <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Agent</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone number</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{object.user}}</td>
+            <td>{{ object.first_name }}</td>
+            <td>{{ object.last_name }}</td>
+            <td>{{object.phone_number}}</td>
+            <td>{{object.email}}</td>
+        </tr>
+    </tbody>
+    </table>
+
+{% endblock content %}
