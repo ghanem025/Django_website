@@ -26,7 +26,7 @@
         </tr>
     </tbody>
     </table>
-            <form action="product/delete">
-                    <button action="product/delete" class="button" type="submit"  >Delete product</button>
+            <form action="{{object.get_delete}}">
+                    <button action="{{object.get_delete}}"class="button" type="submit"  >Delete product</button>
             </form>
 {% endblock content %}

@@ -17,7 +17,7 @@ from .views import (
 app_name = 'website'
 urlpatterns = [
     path('product/<int:my_id>/', dynamic_view, name='product-detail'),
-    path('product/<int:my_id>/delete', views.delete),
+    path('product/<int:my_id>/delete', views.delete, name = 'delete-product'),
     path('product/list/',list_view,name='list'),
     #path('product/',views.product_details,name ='product-details'),# not calling function, just passing referance
     path('product/create/',product_create),

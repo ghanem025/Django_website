@@ -27,6 +27,8 @@ class Product(models.Model):
     stock = models.DecimalField(default=0, decimal_places=0, max_digits=1000000)
     featured = models.BooleanField(default=True)
     email = models.EmailField(blank=True, null=True)
+    def get_delete(self):
+        return reverse("website:delete-product", kwargs={"my_id":self.id})
     def get_dynamic_urls(self):#instances method
         return reverse("website:product-detail",kwargs={"my_id":self.id})
     @property
