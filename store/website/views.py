@@ -5,14 +5,10 @@ from .forms import ProductForm, RawForm,CustomerForm,SearchForm
 from django.views.generic import FormView, TemplateView, ListView
 from django.db.models import Q
 
-
-
-
 def home(request):
     template = "home.html"
     context = {}
     return render(request,"home.html",context)
-
 
 def list_view(request):
     queryset = Product.objects.all()
@@ -20,7 +16,6 @@ def list_view(request):
         'object_list':queryset
     }
     return render (request, "product/list.html", context)
-
 
 def delete(request, my_id):
     obj = get_object_or_404(Product, id=my_id)
@@ -34,9 +29,25 @@ def delete(request, my_id):
     }
     return render(request, "product/delete.html", context)
 
+
+def customer_delete(request, customer_id):
+    obj = get_object_or_404(Customer, id=customer_id)
+    if request.method == 'POST':
+        obj.delete()
+        return redirect('../../')
+    else:
+        print("we did not delete it ")
+    context = {
+        'object': obj
+    }
+    return render(request, "customer/delete.html", context)
+
+
+
 def customer_view(request, customer_id):
     obj = get_object_or_404(Customer,id=customer_id)
     return render(request,"customer/detail.html",{'object':obj})
+
 def dynamic_view(request, my_id):
     obj = get_object_or_404(Product, id=my_id)
     context = {

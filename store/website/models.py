@@ -18,6 +18,8 @@ class Customer(models.Model):
     date_added = models.DateField(default = datetime.date.today)
     def get_customer_detail(self):
         return reverse("website:customer-detail",kwargs={"customer_id":self.id})
+    def get_delete(self):
+        return reverse("website:customer-delete", kwargs={"customer_id":self.id})
 
 class Product(models.Model):
     title = models.CharField(max_length=100)

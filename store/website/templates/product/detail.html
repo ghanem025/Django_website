@@ -1,10 +1,30 @@
 {% load static %}
 {% block content %}
+    <style>
+    .button {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #555555;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.4s;
+    font-size: 20px;
+    }
+
+    .button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    </style>
     <div class="bg"></div>
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
 <link rel="stylesheet" type="text/css" href="{%  static 'css/main.css' %}">
 
+    <form action="http://127.0.0.1:8000/website">
+        <button class="button" type="submit"  >Home</button>
+    </form>
     <h1>{{ object.title }}</h1>
     <table class="styled-table">
     <thead>
@@ -26,6 +46,7 @@
         </tr>
     </tbody>
     </table>
+<p> </p>
             <form action="{{object.get_delete}}">
                     <button action="{{object.get_delete}}"class="button" type="submit"  >Delete product</button>
             </form>
