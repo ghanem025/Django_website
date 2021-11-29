@@ -20,13 +20,14 @@ $(document).ready(function(){
 });
 </script>
     <link href= "{% static 'css/theme.css' %}" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
-    <form action="http://127.0.0.1:8000/website">
-        <button class="button" type="submit"  >Home</button>
-    </form>
-<h1>Search Product</h1>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
 
+<form action="http://127.0.0.1:8000/website">
+    <button class="button" type="submit"  >Home</button>
+</form>
+
+<h1>Search Product</h1>
 <form action="" method="get">
     {% csrf_token %}
     <input id="first_name" name="q" type="text" placeholder="Search...">
@@ -52,8 +53,6 @@ $(document).ready(function(){
     {% endfor %}
         </table>
 </form>
-
-
 {% endblock content %}
 
 
