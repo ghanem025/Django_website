@@ -31,21 +31,23 @@
     {% for instance in object_list %}
         <thead>
             <tr>
-                <th style="text-align:center">ID</th>
-                <th style="text-align:center">Product</th>
-                <th style="text-align:center">Price</th>
-                <th style="text-align:center">Stock</th>
+                <th style="text-align:center">First name</th>
+                <th style="text-align:center">Last name</th>
+                <th style="text-align:center">Email</th>
+                <th style="text-align:center">Phone number</th>
+                <th style="text-align:center">Date added</th>
+
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td style="text-align:center">{{ instance.id }}</td>
-                <td><form action="{{ instance.get_dynamic_urls }}">
-                    <button class="button" type="submit" >{{ instance.title }}</button>
-                </form>
+<!--                <td style="text-align:center">{{ instance.id }}</td>-->
+<!--                <td><form action="{{ instance.get_dynamic_urls }}">-->
+<!--                    <button class="button" type="submit" >{{ instance.title }}</button>-->
+<!--                </form>-->
                 </td>
-                <td>{{ instance.price }}</td>
-                <td>{{ instance.stock }}</td>
+                <td>{{ instance.first_name }}</td>
+                <td>{{ instance.last_name}}</td>
             </tr>
         </tbody>
     {% endfor %}

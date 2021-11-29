@@ -14,6 +14,7 @@ from .views import (
     Search_Product,
     customer_view,
     customer_delete,
+customer_list,
 )
 app_name = 'website'
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     path('customer/delete/<int:customer_id>/', customer_delete, name = 'customer-delete'),
     path('',home, name='home'),
     path('customer/search',Search),
-    path('product/search',Search_Product)
+    path('product/search',Search_Product),
+    path('customer/list',customer_list)
 
 ]
