@@ -17,6 +17,13 @@ def list_view(request):
     }
     return render (request, "product/list.html", context)
 
+def customer_list(request):
+    queryset = Customer.objects.all()
+    context = {
+        'object_list':queryset
+    }
+    return render (request, "customer/list.html",context)
+
 def delete(request, my_id):
     obj = get_object_or_404(Product, id=my_id)
     if request.method == 'POST':
