@@ -9,7 +9,6 @@ import uuid
 #storing in the django admin database
 
 class Customer(models.Model):
-    # eyw_transactionref=models.CharField(max_length=100, blank=True, unique=True, default=uuid.uuid4)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null= True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -35,7 +34,7 @@ class Product(models.Model):
         return reverse("website:product-detail",kwargs={"my_id":self.id})
     @property
     def total_price(self):
-        return self.price * self.stock;
+        return self.price * self.stock
 
 class Store(models.Model):
     name = models.CharField(max_length=100)
