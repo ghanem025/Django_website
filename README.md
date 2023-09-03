@@ -32,9 +32,7 @@ This will display a list of all the products that have been added to the databas
 * Creating pleasent looking forms and webpages
 
 # Future Features
-* being able to search for a customer or product
 * being able to delete a customer or product
 * displaying a list of customers
 * updating a customers profile
-* updating a products stock
 
